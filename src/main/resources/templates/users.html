@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Пользователи</title>
+</head>
+<body>
+<div align="center">
+    <h1>Список пользователей</h1>
+    <h4><a style="color: darkgreen" href="/new">Добавить пользователя</a></h4>
+    <br>
+    <table cellpadding="15">
+        <tr style="background: grey">
+            <th>id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Год рождения</th>
+            <th>Действие</th>
+        </tr>
+        <tr th:each="user: ${allUsers}">
+            <td th:text=${user.id}/>
+            <td th:text=${user.firstName}/>
+            <td th:text=${user.lastName}/>
+            <td th:text=${user.year}/>
+            <td>
+                <a style="color: grey" th:href="@{/update(id=${user.id})}">Изменить</a>
+                <a style="color: darkred" th:href="@{/delete(id=${user.id})}">Удалить</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<style>
+    table {
+        width: 100%;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    td {
+        text-align: center;
+        font-size: 18px;
+        border-bottom: 2px solid grey;
+    }
+</style>
