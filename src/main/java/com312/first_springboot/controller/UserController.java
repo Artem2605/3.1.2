@@ -57,7 +57,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "update";
         } else {
-            USER_SERVICE.saveUser(user);
+            USER_SERVICE.updateUser(user);
             return "redirect:/users";
         }
     }

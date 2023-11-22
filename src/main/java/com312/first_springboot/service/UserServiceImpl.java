@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void updateUser(User user) {
+        USER_REPOSITORY.save(user);
+    }
+
+    @Override
     public void deleteUserById(Long id) {
         USER_REPOSITORY.deleteById(id);
     }
